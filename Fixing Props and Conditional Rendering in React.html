@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Profile - React</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    .profile {
+      background: #fff;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+
+    function UserProfile(props) {
+      return (
+        <div className="profile">
+          <h2>User Profile</h2>
+          {props.user && (
+            <div>
+              <p><strong>Name:</strong> {props.user.name}</p>
+              <p><strong>Email:</strong> {props.user.email}</p>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    function App() {
+      const user = {
+        name: "Aarav Sharma",
+        email: "aarav.sharma@example.com"
+      };
+
+      return (
+        <div>
+          <h1>Welcome</h1>
+          <UserProfile user={user} />
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</body>
+</html>
